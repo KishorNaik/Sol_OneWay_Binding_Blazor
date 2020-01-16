@@ -1,0 +1,21 @@
+﻿@page "/demo/parent"
+
+<h1>@Title</h1>
+
+<button class="btn btn-danger" @onclick="UpdateTitle">Update Title</button>
+
+<ChildComponent ParentTitle="@Title"></ChildComponent>
+
+@code {
+    private string Title { get; set; } = "Hello World";
+
+    private async Task UpdateTitle()
+    {
+        await Task.Run(() => {
+
+            Title = "Hello Blazor";
+
+
+        });
+    }
+}
